@@ -311,18 +311,6 @@ export default withMermaid(
       class: "mermaid my-class", // set additional css classes for parent container
     },
 
-    // 联调 CodeRunner：终端 A npm run api:dev (8787)，终端 B npm run docs:dev；/api 代理到本地 Python 服务
-    vite: {
-      server: {
-        proxy: {
-          "/api": {
-            target: "http://127.0.0.1:8787",
-            changeOrigin: true,
-          },
-        },
-      },
-    },
-
     // 物理学路径文章注入 MathJax 4（docs/public/mathjax，本地完全离线）
     transformPageData(pageData) {
       if (shouldDisableMath(pageData.relativePath)) {
